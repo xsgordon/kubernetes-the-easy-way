@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hello-catz-httpd-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hello-catz
+        service: httpd
+    spec:
+      containers:
+      - name: webserver
+        image: xsgordon/python_httpd:v2
+        ports:
+        - containerPort: 8080
+
+        args:
+        - /bin/sh
+        - -c
+        - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+
+        livenessProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/healthy
+          initialDelaySeconds: 5
+          periodSeconds: 5

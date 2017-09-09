@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-catz-pod
+  labels:
+    app: hello-catz
+    service: httpd
+spec:
+  containers:
+  - name: webserver
+    image: xsgordon/python_httpd:v2
+    ports:
+    - containerPort: 8080

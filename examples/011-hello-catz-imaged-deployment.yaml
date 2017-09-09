@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hello-catz-imaged-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-catz
+        service: imaged
+    spec:
+      volumes:
+        - name: catz-volume
+          persistentVolumeClaim:
+            claimName: catzclaim
+      containers:
+      - name: python-imaged
+        image: xsgordon/python_imaged:v1
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - mountPath: "/catz"
+          name: catz-volume

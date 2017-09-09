@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hello-catz-imaged-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-catz
+        service: imaged
+    spec:
+      containers:
+      - name: python-imaged
+        image: xsgordon/python_imaged:v1
+        ports:
+        - containerPort: 8080

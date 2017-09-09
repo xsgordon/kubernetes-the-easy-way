@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hello-catz-httpd-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-catz
+        service: httpd
+    spec:
+      containers:
+      - name: python-httpd
+        image: xsgordon/python_httpd:v3
+        ports:
+        - containerPort: 8080
+        env:
+        - name: HTTPD_SERVICE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: hello-catz-httpd-config
+              key: HTTPD_SERVICE_NAME
+

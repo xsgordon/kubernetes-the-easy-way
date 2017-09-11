@@ -8,6 +8,6 @@ metadata:
 spec:
   containers:
   - name: webserver
-    image: xsgordon/python_httpd:v2
+    image: xsgordon/python_httpd:v1
     ports:
     - containerPort: 8080

@@ -2,6 +2,8 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
  name: catzclaim
+ labels:
+  app: hello-catz
 spec:
  accessModes:
   - ReadOnlyMany

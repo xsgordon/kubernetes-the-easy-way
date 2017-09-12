@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Route
 metadata:
   name: hello-catz-route
+  labels:
+    app: hello-catz
 spec:
   host: hello-catz-service-myproject.192.168.42.116.nip.io
   to:

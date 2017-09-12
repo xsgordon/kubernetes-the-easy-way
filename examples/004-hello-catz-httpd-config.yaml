@@ -2,5 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hello-catz-httpd-config
+  labels:
+    app: hello-catz
 data:
     HTTPD_SERVICE_NAME: hello-catz-imaged-service

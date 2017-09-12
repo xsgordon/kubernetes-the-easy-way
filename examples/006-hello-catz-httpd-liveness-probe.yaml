@@ -2,6 +2,8 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: hello-catz-httpd-deployment
+  labels:
+    app: hello-catz
 spec:
   replicas: 3
   template:

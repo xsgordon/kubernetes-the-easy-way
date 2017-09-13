@@ -17,6 +17,12 @@ spec:
         image: xsgordon/python_httpd:v2
         ports:
         - containerPort: 8080
+        env:
+        - name: HTTPD_SERVICE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: hello-catz-httpd-config
+              key: HTTPD_SERVICE_NAME
 
         args:
         - /bin/sh

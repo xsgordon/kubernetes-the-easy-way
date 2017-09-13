@@ -13,7 +13,7 @@ spec:
       volumes:
         - name: catz-volume
           persistentVolumeClaim:
-            claimName: catzclaim
+            claimName: catz-claim
       containers:
       - name: python-imaged
         image: xsgordon/python_imaged:v1

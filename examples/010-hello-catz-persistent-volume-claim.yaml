@@ -1,15 +1,15 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
- name: catzclaim
- labels:
-  app: hello-catz
+  name: catz-claim
+  labels:
+    app: hello-catz
 spec:
- accessModes:
-  - ReadOnlyMany
- resources:
-  requests:
-   storage: 1Gi
- storageClassName: slow
- selector:
-  name: catz
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: slow
+  selector:
+    name: catz-volume

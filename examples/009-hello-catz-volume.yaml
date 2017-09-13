@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
- name: catz
- labels:
-  app: hello-catz
+  name: catz-volume
+  labels:
+    app: hello-catz
 spec:
- capacity:
-  storage: 1Gi
- accessModes:
-  - ReadOnlyMany
- storageClassName: slow
- hostPath:
-  path: /opt/catz
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: slow
+  hostPath:
+    path: /opt/catz
+  persistentVolumeReclaimPolicy: Retain

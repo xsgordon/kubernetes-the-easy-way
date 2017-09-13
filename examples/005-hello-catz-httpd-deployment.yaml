@@ -7,23 +7,23 @@ spec:
   strategy:
     type: RollingUpdate
     rollingParams:
-	  # The time to wait between individual pod updates. If unspecified, this
-	  # value defaults to 1.
+      # The time to wait between individual pod updates. If unspecified, this
+      # value defaults to 1.
       updatePeriodSeconds: 1
-	  # The time to wait between polling the deployment status after update. If
-	  # unspecified, this value defaults to 1.
+      # The time to wait between polling the deployment status after update. If
+      # unspecified, this value defaults to 1.
       intervalSeconds: 1
-	  # The time to wait for a scaling event before giving up. Optional; the
-	  # default is 600. Here, giving up means automatically rolling back to the
-	  # previous complete deployment.
+      # The time to wait for a scaling event before giving up. Optional; the
+      # default is 600. Here, giving up means automatically rolling back to the
+      # previous complete deployment.
       timeoutSeconds: 120
-	  # maxSurge is optional and defaults to 25% if not specified. See the
-	  # information below the following procedure.
+      # maxSurge is optional and defaults to 25% if not specified. See the
+      # information below the following procedure.
       maxSurge: "20%"
-	  # maxUnavailable is optional and defaults to 25% if not specified. See
-	  # the information below the following procedure.
+      # maxUnavailable is optional and defaults to 25% if not specified. See
+      # the information below the following procedure.
       maxUnavailable: "10%"
-	  # pre and post are both lifecycle hooks.
+      # pre and post are both lifecycle hooks.
       pre: {}
       post: {}
   template:
@@ -37,8 +37,8 @@ spec:
         image: xsgordon/python_httpd:v3
         ports:
         - containerPort: 8080
-		# Map in the hello-catz-httpd-config, if this ConfigMap then pod
-		# creation will get stuck until it does.
+        # Map in the hello-catz-httpd-config, if this ConfigMap then pod
+        # creation will get stuck until it does.
         env:
         - name: HTTPD_SERVICE_NAME
           valueFrom:

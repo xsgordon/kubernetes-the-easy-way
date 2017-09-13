@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hello-catz
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
       app: hello-catz
       service: httpd
